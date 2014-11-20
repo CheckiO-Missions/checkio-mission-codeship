@@ -1,9 +1,27 @@
 <p>
-    <i>( Describe task in general )</i>
+    You are captain of a ship and you need to deliver cargo through
+    ice rocks, icebergs and wandering tornados.
+    You need to deliver the cargo as quick as possible and save fuel.
 </p>
 
 <p>
-    Sum two passed ints
+    You are given a map of ice sea as a square grid. You start at north-west corner and you should
+    deliver the cargo at south-east corner. The sea is full by rocks and wandering magnetic tornados.
+    Tornados are small but dangerous. They randomly wanders at sea, but when you ship is near, they
+    start "chase" by your ship. Tornados trying to use the shortest path, but can not pass through rocks.
+    You should not meet with a tornado, do not struck in rocks and don't leave the map.
+</p>
+
+<p>
+    The map is represented as a sequence of strings. Where "S" is your ship, "." is an empty cell,
+    "X" is rock and "O" is a tornado. For each step you should return a single or a sequence of actions
+    (Maybe you can predict tornados) as a string. Actions: "N" is move to North, "S" - South, "W" - West,
+    "E" - East and "." is wait.
+</p>
+
+<p>
+    You have 100 units of fuel and each move takes one (even wait). You should economize fuel, because you points
+    depends on how much fuel is remaining in each game. If fuel doesn't remained, then this is game over.
 </p>
 
 <p style="text-align: center;">
@@ -11,34 +29,36 @@
     <img class="for_editor_only" title="example" src="{{MEDIA}}example.png" alt="example" width="380px"/>
 </p>
 
-<p><i>( Explain input and output values )</i></p>
 <p>
-    <strong>Input: </strong> Two arguments. Both are int
+    You will play at this game until game over. For each game you will receive points equal of remaining fuel.
+    If you crashed, then 0 points for the current game. The result score is sum of scores for games.
+    Each game start in a new environment.
+</p>
+<p>
+    <strong>Input: </strong> A sea map as a tuple of strings.
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    <strong>Output: </strong> The action or a sequence of actions as a string.
 </p>
 
 
 
 <div class="for_info_only">
-    <p><i>( Put some usage examples )</i></p>
     <p>
         <strong>Example:</strong>
     </p>
     <pre class="brush: python">
-checkio(3, 2) == 5
-checkio(5, 7) == 12
     </pre>
 </div>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    <i>(Here you can explain how it can be used in development and what is usage of this.)</i>
+    Here you will examine how to use pathfinding algorithms in changing enviroments.
+    And it can be useful for network routing with unstable topology.
 </p>
 
 <p>
     <strong>Precondition:</strong>
-    <i>Constraints for Input</i>
+
 </p>
