@@ -5,18 +5,18 @@
 </p>
 
 <p>
-    You are given a map of ice sea as a square grid. You start at north-west corner and you should
+    You are given a map of ice sea as a square grid and quantity of fuel. You start at north-west corner and you should
     deliver the cargo at south-east corner. The sea is full by rocks and wandering magnetic tornados.
-    Tornados are small but dangerous. They randomly wanders at sea, but when you ship is near, they
-    start "chase" by your ship. Tornados trying to use the shortest path, but can not pass through rocks.
+    Tornadoes are small but dangerous. They randomly wanders at sea, but when you ship is near, they
+    start "chase" by your ship. Tornadoes trying to use the shortest path, but can not pass through rocks.
     You should not meet with a tornado, do not struck in rocks and don't leave the map.
 </p>
 
 <p>
     The map is represented as a sequence of strings. Where "S" is your ship, "." is an empty cell,
-    "X" is rock and "O" is a tornado. For each step you should return a single or a sequence of actions
-    (Maybe you can predict tornados) as a string. Actions: "N" is move to North, "S" - South, "W" - West,
-    "E" - East and "." is wait.
+    "X" is rock and "O" is a tornado. For each step you should return an action as a string with one character.
+    Actions: "N" is move to North, "S" - South, "W" - West,
+    "E" - East and "." is wait. Tornadoes and the ship move simultaneous, but don't try to move forward at tornadoes.
 </p>
 
 <p>
@@ -35,7 +35,7 @@
     Each game start in a new environment.
 </p>
 <p>
-    <strong>Input: </strong> A sea map as a tuple of strings.
+    <strong>Input: </strong> Two arguments. A sea map as a tuple of strings and remaining fuel as an integer.
 </p>
 
 <p>
