@@ -106,7 +106,7 @@ TESTS = {
         "tornadoes": [(5, 5), (1, 8), (8, 1)]
     },
 
-    "10. You shall not pass": {
+    "9. You shall not pass": {
         "map": (
             "..........",
             ".....X....",
