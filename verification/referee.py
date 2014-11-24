@@ -83,7 +83,7 @@ def init(init_data):
     }
     return referee_data
 
-def process(data, user_result):
+def process(data, user_result, seed="checkio"):
     if not isinstance(user_result, str) and user_result not in DIR_NAMES:
         data.update({
             "result": False,
@@ -139,9 +139,9 @@ def process(data, user_result):
     # Aaaaand tornado move
     data["old_tornadoes"] = tornadoes[:]
     tornado_moves = []
-    rseed = data["seed"] + user_result
-    data["seed"] = rseed
-    random.seed(rseed)
+    # rseed = data["seed"] + user_result
+    # data["seed"] = rseed
+    random.seed(seed)
     for i in range(len(tornadoes)):
         tx, ty = tornadoes[i]
 

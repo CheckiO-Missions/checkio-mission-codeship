@@ -24,9 +24,9 @@ class CheckiORefereeMultiScore(CheckiORefereeMulti):
 
     def check_current_test(self, data):
         user_result = data['result']
-        if not self.referee_data.get("seed"):
-            self.referee_data["seed"] = self.seed
-        self.referee_data = self.process_referee(self.referee_data, user_result)
+        if isinstance(user_result, str):
+            self.seed += user_result
+        self.referee_data = self.process_referee(self.referee_data, user_result, self.seed)
 
         self.total_score += self.referee_data.get("score", 0)
 
