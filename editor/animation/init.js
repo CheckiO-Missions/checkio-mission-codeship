@@ -91,7 +91,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
                 ],
                 100
             ];
-            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput[0]).replace("(", "[").replace(")", "]") +
+            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput[0]).replace("[", "(").replace("]", ")") +
                 ", " + checkioInput[1] + ')';
 
             var failError = function (dError) {
