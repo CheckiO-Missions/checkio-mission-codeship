@@ -43,14 +43,14 @@ class CheckiORefereeMultiScore(CheckiORefereeMulti):
 
         if not referee_result:
             if self.total_score:
-                api.success(score=self.total_score)
+                return api.success(score=self.total_score)
             else:
                 return api.fail(self.current_step, self.get_current_test_fullname())
 
         if not is_win_result:
             self.test_current_step()
         else:
-            self.total_score += self.referee_data["total_score"]
+            self.total_score += self.referee_data["fuel"]
             if self.next_env():
                 self.restart_env()
             else:

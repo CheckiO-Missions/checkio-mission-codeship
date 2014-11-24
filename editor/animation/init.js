@@ -269,8 +269,11 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
 
                 for (var r = 0; r < seaMap.length; r++) {
                     for (var c = 0; c < seaMap[0].length; c++) {
-                        paper.rect(pad + c * cellSize, pad + r * cellSize, cellSize, cellSize).attr(
+                        var el = paper.rect(pad + c * cellSize, pad + r * cellSize, cellSize, cellSize).attr(
                                 seaMap[r][c] == "X" ? aRock : aCell);
+                        if (r == seaMap.length - 1 && c == seaMap[0].length - 1){
+                            el.attr("fill", colorGrey2);
+                        }
                     }
                 }
 
@@ -278,6 +281,8 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
                 for (var t = 0; t < tornadoes.length; t++) {
                     tornadoesObj.push(drawTornado(paper, pad + tornadoes[t][1] * cellSize, pad + tornadoes[t][0] * cellSize))
                 }
+
+
 
             };
 

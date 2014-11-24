@@ -72,7 +72,7 @@ def init(init_data):
         "tornado_moves": ["."] * len(init_data["tornadoes"]),
         "map": init_data["map"],
         "fuel": INIT_FUEL,
-        "input": [prepare_map(init_data["map"], (1, 1), init_data["tornadoes"]), INIT_FUEL],
+        "input": [prepare_map(init_data["map"], (0, 0), init_data["tornadoes"]), INIT_FUEL],
     }
     return referee_data
 
@@ -133,6 +133,7 @@ def process(data, user_result):
     data["old_tornadoes"] = tornadoes[:]
     tornado_moves = []
     rseed = data["seed"] + user_result
+    data["seed"] = rseed
     random.seed(rseed)
     for i in range(len(tornadoes)):
         tx, ty = tornadoes[i]
