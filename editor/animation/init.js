@@ -312,7 +312,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
                         var tDir = DIRS[tMove];
                         setTimeout(function (o, d) {
                             return function () {
-                                o.animate({"transform": "...T" + (d[1] * cellSize) + "," + (d[0] * cellSize)},
+                                o.animate({"transform": "...T" + (d[1] * cellSize) + "," + (d[0] * cellSize) + "R360"},
                                     moveTime)
                             }
                         }(tObj, tDir), 200);
