@@ -80,6 +80,7 @@ def process(data, user_result):
     if not isinstance(user_result, str) and user_result not in DIRS.keys():
         data.update({
             "result": False,
+            "fuel": 0,
             "result_addon": "You should return a string with an action."
         })
     sx, sy = data["new_ship"]
@@ -93,18 +94,21 @@ def process(data, user_result):
     if (new_sx, new_sy) in tornadoes:
         data.update({
             "result": False,
+            "fuel": 0,
             "result_addon": "Dont move in a tornado! SOS"
         })
         return data
     if sea[new_sx][new_sy] == ROCK:
         data.update({
             "result": False,
+            "fuel": 0,
             "result_addon": "ROCK! Turn to ... SOS"
         })
         return data
     if new_sx < 0 or new_sx >= len(sea) or new_sy < 0 or new_sy >= len(sea[0]):
         data.update({
             "result": False,
+            "fuel": 0,
             "result_addon": "Captain, we lost."
         })
         return data
@@ -121,6 +125,7 @@ def process(data, user_result):
     if data["fuel"] <= 0:
         data.update({
             "result": False,
+            "fuel": 0,
             "result_addon": "We don't have fuel."
         })
         return data
@@ -156,6 +161,7 @@ def process(data, user_result):
     if (new_sx, new_sy) in tornadoes:
         data.update({
             "result": False,
+            "fuel": 0,
             "result_addon": "Tornado caught us, Cap."
         })
         return data
