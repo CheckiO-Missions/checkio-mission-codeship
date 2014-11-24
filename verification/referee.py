@@ -66,13 +66,13 @@ def prepare_map(grid, ship, tornadoes):
 def init(init_data):
     referee_data = {
         "ship": (0, 0),
+        "new_ship": (0, 0),
         "old_tornadoes": init_data["tornadoes"],
         "new_tornadoes": init_data["tornadoes"],
         "tornado_moves": ["."] * len(init_data["tornadoes"]),
         "map": init_data["map"],
         "fuel": INIT_FUEL,
         "input": [prepare_map(init_data["map"], (1, 1), init_data["tornadoes"]), INIT_FUEL],
-        "seed": init_data["seed"] + "".join(init_data["map"])
     }
     return referee_data
 
@@ -82,7 +82,8 @@ def process(data, user_result):
             "result": False,
             "result_addon": "You should return a string with an action."
         })
-    sx, sy = data["ship"]
+    sx, sy = data["new_ship"]
+    data["ship"] = (sx, sy)
     sea = data["map"]
     sea_width = len(sea[0])
     sea_height = len(sea)
@@ -180,7 +181,8 @@ api.add_listener(
         },
         initial_referee=init,
         process_referee=process,
-        is_win_referee=None
+        is_win_referee=None,
+        function_name="move_ship"
         # checker=None,  # checkers.float.comparison(2)
         # add_allowed_modules=[],
         # add_close_builtins=[],
