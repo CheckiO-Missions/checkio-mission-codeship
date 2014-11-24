@@ -46,14 +46,21 @@ INIT_FUEL = 100
 
 HUNT_DISTANCE = 2
 
+DIRS_LIST = [
+    ("N", (-1, 0)),
+    ("S", (1, 0)),
+    ("W", (0, -1)),
+    ("E", (0, 1)),
+    (".", (0, 0))]
+
 DIRS = {
     "N": (-1, 0),
     "S": (1, 0),
     "W": (0, -1),
     "E": (0, 1),
-    ".": (0, 0)
-}
+    ".": (0, 0)}
 
+DIR_NAMES = "NSWE."
 
 def prepare_map(grid, ship, tornadoes):
     grid = list(list(row) for row in grid)
@@ -77,7 +84,7 @@ def init(init_data):
     return referee_data
 
 def process(data, user_result):
-    if not isinstance(user_result, str) and user_result not in DIRS.keys():
+    if not isinstance(user_result, str) and user_result not in DIR_NAMES:
         data.update({
             "result": False,
             "fuel": 0,
@@ -139,7 +146,7 @@ def process(data, user_result):
         tx, ty = tornadoes[i]
 
         possible = []
-        for direction, (dx, dy) in DIRS.items():
+        for direction, (dx, dy) in DIRS_LIST:
             x, y = tx + dx, ty + dy
             if 0 <= x < sea_height and 0 <= y < sea_width and sea[x][y] != ROCK and (x, y) not in tornadoes:
                 possible.append((direction, (x, y)))
