@@ -71,7 +71,7 @@ def init(init_data):
         "tornado_moves": ["."] * len(init_data["tornadoes"]),
         "map": init_data["map"],
         "fuel": INIT_FUEL,
-        "input": prepare_map(init_data["map"], (1, 1), init_data["tornadoes"]),
+        "input": [prepare_map(init_data["map"], (1, 1), init_data["tornadoes"]), INIT_FUEL],
         "seed": init_data["seed"] + "".join(init_data["map"])
     }
     return referee_data
@@ -160,6 +160,7 @@ def process(data, user_result):
         return data
     data.update({
         "result": True,
+        "input": [prepare_map(sea, (new_sx, new_sy), tornadoes), data["fuel"]],
         "result_addon": "Next move."
     })
     return data
