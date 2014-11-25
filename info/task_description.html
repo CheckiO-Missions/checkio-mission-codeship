@@ -1,27 +1,35 @@
+<div class="story" style="text-align: center">
+    <img source="{{ MEDIA }}iceberg-storms.png" width="600px" alt="storms"/>
+</div>
+
 <p>
-    You are captain of a ship and you need to deliver cargo through
-    ice rocks, icebergs and wandering tornadoes.
-    You need to deliver the cargo as quick as possible and save fuel.
+    Through an odd set of circumstances, you find yourself the Captain of a ship with a mission to deliver cargo through
+    a hazardous stretch of sea strewn with icy rocks, icebergs and wandering tornadoes. You must deliver the cargo as
+    quickly as possible to save on fuel.
+
+
 </p>
 
 <p>
-    You are given a map of ice sea as a square grid and quantity of fuel. You start at north-west corner and you should
-    deliver the cargo at south-east corner. The sea is full by rocks and wandering magnetic tornados.
-    Tornadoes are small but dangerous. They randomly wanders at sea, but when you ship is near, they
-    start "chase" by your ship. Tornadoes trying to use the shortest path, but can not pass through rocks.
-    You should not meet with a tornado, do not struck in rocks and don't leave the map.
+    You are given a map of an icy sea as a square grid and quantity of fuel. You start in the north-west corner and you
+    must deliver the cargo to the port in the south-eastern corner. The sea is filled with rocks and wandering magnetic
+    tornadoes. These tornadoes are small, but dangerous and wander the sea seemingly at random. When your ship nears on,
+    it will start to "chase" your ship due to its unusual magnetic properties. Tornadoes always take the shortest path
+    but cannot pass through rocks. You should not sail into a tornado, strike icebergs or leave the map, else you spell
+    a damp doom for yourself and your crew.
 </p>
 
 <p>
-    The map is represented as a sequence of strings. Where "S" is your ship, "." is an empty cell,
-    "X" is rock and "O" is a tornado. For each step you should return an action as a string with one character.
-    Actions: "N" is move to North, "S" - South, "W" - West,
-    "E" - East and "." is wait. Tornadoes and the ship move simultaneous, but don't try to move forward at tornadoes.
+    The map is represented as a sequence of strings where "S" is your ship, "." is an empty cell, "X" is an iceberg and
+    "O" is a tornado. For each step you should return an action as a string with one character. Actions: "N" is a move
+    Northwards, "S" - South, "W" - West, "E" - East and "." waits for the turn. Tornadoes move simultaneously with the
+    ship, so try to plan ahead and not sail into one.
 </p>
 
 <p>
-    You have 100 units of fuel and each move takes one (even wait). You should economize fuel, because you points
-    depends on how much fuel is remaining in each game. If fuel doesn't remained, then this is game over.
+    You have 100 units of fuel and each move uses one (even waiting). You should economize your fuel usage, because the
+    points you earn depends on how much fuel you have remaining each game. If there is no fuel left in the ships
+    reserves, then the ship will drift endlessly on the seas until the crew abandons her, triggering a game over.
 </p>
 
 <p style="text-align: center;">
@@ -30,12 +38,14 @@
 </p>
 
 <p>
-    You will play at this game until game over. For each game you will receive points equal of remaining fuel.
-    If you crashed, then 0 points for the current game. The result score is sum of scores for games.
-    Each game start in a new environment.
+    For this mission, you will be able to play the game until you get a game over. For each game you will receive points
+    equal to the remaining fuel. If you crash, then you will receive 0 points for that game. The resulting score is the
+    sum of scores for each game. Each game starts in a new environment.
+
 </p>
 <p>
     <strong>Input: </strong> Two arguments. A sea map as a tuple of strings and remaining fuel as an integer.
+
 </p>
 
 <p>
@@ -48,14 +58,15 @@
         <strong>Example:</strong>
     </p>
     <textarea data-code="python">
-move_ship(("S....", ".XXX.", "..OX.", ".XXX.", "....."), 100) # "E" or "S"
+        move_ship(("S....", ".XXX.", "..OX.", ".XXX.", "....."), 100) # "E" or "S"
     </textarea>
 </div>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    Here you will examine how to use pathfinding algorithms in changing enviroments.
-    And it can be useful for network routing with unstable topology.
+    Here you can examine how to use and develop pathfinding algorithms in which react to changing environments. These
+    concepts can be can be useful for network routing with unstable topology.
+
 </p>
 
 <p>
