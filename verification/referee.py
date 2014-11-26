@@ -90,6 +90,7 @@ def process(data, user_result, seed="checkio"):
             "fuel": 0,
             "result_addon": "You should return a string with an action."
         })
+        return data
     sx, sy = data["new_ship"]
     data["ship"] = (sx, sy)
     sea = data["map"]
