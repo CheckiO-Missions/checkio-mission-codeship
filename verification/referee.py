@@ -151,6 +151,9 @@ def process(data, user_result, seed="checkio"):
             x, y = tx + dx, ty + dy
             if 0 <= x < sea_height and 0 <= y < sea_width and sea[x][y] != ROCK and (x, y) not in tornadoes:
                 possible.append((direction, (x, y)))
+        if not possible:
+            tornado_moves.append(".")
+            continue
         distance = abs(sx - tx) + abs(sy - ty)
         if distance <= HUNT_DISTANCE:
             best = float("inf"), (tx, ty), "."
