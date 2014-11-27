@@ -32,7 +32,7 @@ if __name__ == '__main__':
         ship = (0, 0)
         for step in range(fuel):
             user_result = func(prepare_map(sea, ship, tornadoes), fuel - step)
-            if not isinstance(user_result, str) and user_result not in DIRS.keys():
+            if not isinstance(user_result, str) or user_result not in DIRS.keys():
                 print("You should return a string with an action.")
                 return False
             sx, sy = ship
