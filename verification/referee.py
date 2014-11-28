@@ -99,6 +99,13 @@ def process(data, user_result, seed="checkio"):
     tornadoes = data["new_tornadoes"]
     new_sx, new_sy = sx + DIRS[user_result][0], sy + DIRS[user_result][1]
     data["new_ship"] = new_sx, new_sy
+    if new_sx < 0 or new_sx >= len(sea) or new_sy < 0 or new_sy >= len(sea[0]):
+        data.update({
+            "result": False,
+            "fuel": 0,
+            "result_addon": "Captain, we lost."
+        })
+        return data
     if (new_sx, new_sy) in tornadoes:
         data.update({
             "result": False,
@@ -113,13 +120,7 @@ def process(data, user_result, seed="checkio"):
             "result_addon": "ROCK! Turn to ... SOS"
         })
         return data
-    if new_sx < 0 or new_sx >= len(sea) or new_sy < 0 or new_sy >= len(sea[0]):
-        data.update({
-            "result": False,
-            "fuel": 0,
-            "result_addon": "Captain, we lost."
-        })
-        return data
+
 
     data["fuel"] -= 1
     if (new_sx, new_sy) == (sea_height - 1, sea_width - 1):
