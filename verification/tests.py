@@ -9,7 +9,7 @@ Each test is dict with
 
 
 TESTS = {
-    "0. Basic": {
+    "00. Basic": {
         "map": (
             ".....",
             ".XXX.",
@@ -19,7 +19,7 @@ TESTS = {
         ),
         "tornadoes": [(2, 2)]
     },
-    "1. Basic": {
+    "01. Basic": {
         "map": (
             ".......",
             ".X.....",
@@ -32,7 +32,7 @@ TESTS = {
         ),
         "tornadoes": [(0, 6)]
     },
-    "2. Basic": {
+    "02. Basic": {
         "map": (
             ".........",
             ".X.X.X.X.",
@@ -46,7 +46,7 @@ TESTS = {
         ),
         "tornadoes": [(6, 2), (4, 4), (2, 6)]
     },
-    "3. Empty": {
+    "03. Empty": {
         "map": (
             ".........",
             ".........",
@@ -61,7 +61,7 @@ TESTS = {
         ),
         "tornadoes": [(9, 0), (0, 8), (7, 2), (2, 6)]
     },
-    "4. Columns": {
+    "04. Columns": {
         "map": (
             ".....",
             ".X.X.",
@@ -75,7 +75,7 @@ TESTS = {
         ),
         "tornadoes": [(4, 3), (4, 4)]
     },
-    "5. From description": {
+    "05. From description": {
         "map": (
             "..........",
             "..........",
@@ -90,7 +90,7 @@ TESTS = {
         ),
         "tornadoes": [(0, 9), (1, 5)]
     },
-    "6. Diagonal": {
+    "06. Diagonal": {
         "map": (
             "..........",
             ".X....X...",
@@ -105,7 +105,7 @@ TESTS = {
         ),
         "tornadoes": [(5, 5), (1, 8), (8, 1)]
     },
-    "7. Chaos": {
+    "07. Chaos": {
         "map": (
             ".........",
             ".X..X.X..",
@@ -120,7 +120,7 @@ TESTS = {
         ),
         "tornadoes": [(9, 3), (2, 5), (5, 2), (5, 4)]
     },
-    "8. Short danger path": {
+    "08. Short danger path": {
         "map": (
             "..........",
             ".XXXXX.X..",
@@ -135,7 +135,7 @@ TESTS = {
         ),
         "tornadoes": [(3, 6), (4, 7), (5, 8)]
     },
-    "9. You shall not pass": {
+    "09. You shall not pass": {
         "map": (
             "..........",
             ".....X....",
