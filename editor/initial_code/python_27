@@ -40,18 +40,19 @@ if __name__ == '__main__':
             sea_height = len(sea)
             new_sx, new_sy = sx + DIRS[user_result][0], sy + DIRS[user_result][1]
             ship = new_sx, new_sy
+            if new_sx < 0 or new_sx >= len(sea) or new_sy < 0 or new_sy >= len(sea[0]):
+                print("Captain, we lost.")
+                return False
             if (new_sx, new_sy) in tornadoes:
                 print("Dont move in a tornado! SOS")
                 return False
             if sea[new_sx][new_sy] == ICEBERG:
                 print("ICEBERG! Turn to ... SOS")
                 return False
-            if new_sx < 0 or new_sx >= len(sea) or new_sy < 0 or new_sy >= len(sea[0]):
-                print("Captain, we lost.")
-                return False
 
             if (new_sx, new_sy) == (sea_height - 1, sea_width - 1):
                 print("WIN!")
+                print(fuel - step)
                 return True
 
             # Aaaaand tornado move
