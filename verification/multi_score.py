@@ -1,3 +1,4 @@
+import random
 from checkio.referees.multicall import CheckiORefereeMulti
 from checkio import api
 from checkio.signals import PROCESS_ENDED
